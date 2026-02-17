@@ -1,0 +1,19 @@
+console.log("Balance (MATIC):", hre.ethers.utils.formatEther(balance));
+// Print balance in MATIC
+const balance = await deployer.getBalance();
+// Get balance
+const deployer = await hre.ethers.getSigner("0xD5A737C540B0CDCCb9E5B6DeA45F5E93A9197B8C");
+// Get the signer for your wallet
+const hre = require("hardhat");
+console.log("Balance (MATIC):", ethers.utils.formatEther(balance));
+const balance = await deployer.getBalance();
+const [deployer] = await ethers.getSigners();
+await deployer.getBalance().then(b => b.toString());
+const [deployer] = await ethers.getSigners();
+await deployer.getBalance().then(b => b.toString());
+const [deployer] = await ethers.getSigners();
+hre.ethers
+Object.keys(hre)
+.exit 
+hre.ethers
+.exit

@@ -9,34 +9,32 @@ contract TouristID is AccessControl {
 
     struct Tourist {
         string name;
-        string kycHash;        // IPFS hash of KYC documents
-        string itineraryHash;  // IPFS hash of itinerary
+        bytes32 kycHash;
+        bytes32 itineraryHash;
         string emergencyContact;
-        uint256 startDate;
-        uint256 endDate;
+        uint32 startDate;
+        uint32 endDate;
         bool exists;
     }
 
-    mapping(address => Tourist) public tourists;
+    mapping(address => Tourist) private tourists;
 
     event TouristRegistered(address indexed touristAddress, string name);
 
     constructor() {
-        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender); // deployer is admin
+        // Skip _setupRole to avoid revert; grant roles manually after deployment
     }
 
-    // Only Tourism Department can register tourists
     function registerTourist(
         address _touristAddress,
         string memory _name,
-        string memory _kycHash,
-        string memory _itineraryHash,
+        bytes32 _kycHash,
+        bytes32 _itineraryHash,
         string memory _emergencyContact,
-        uint256 _startDate,
-        uint256 _endDate
+        uint32 _startDate,
+        uint32 _endDate
     ) public onlyRole(TOURISM_ROLE) {
-        require(!tourists[_touristAddress].exists, "Tourist already registered");
-
+        require(!tourists[_touristAddress].exists, "Already registered");
         tourists[_touristAddress] = Tourist({
             name: _name,
             kycHash: _kycHash,
@@ -46,26 +44,15 @@ contract TouristID is AccessControl {
             endDate: _endDate,
             exists: true
         });
-
         emit TouristRegistered(_touristAddress, _name);
     }
 
-    // Both Police and Tourism Department can view tourist info
     function getTourist(address _touristAddress) public view returns (Tourist memory) {
         require(
             hasRole(POLICE_ROLE, msg.sender) || hasRole(TOURISM_ROLE, msg.sender),
             "Access denied"
         );
-        require(tourists[_touristAddress].exists, "Tourist not found");
+        require(tourists[_touristAddress].exists, "Not found");
         return tourists[_touristAddress];
-    }
-
-    // Admin functions to assign roles
-    function grantPoliceRole(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
-        grantRole(POLICE_ROLE, account);
-    }
-
-    function grantTourismRole(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
-        grantRole(TOURISM_ROLE, account);
     }
 }
