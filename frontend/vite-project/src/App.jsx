@@ -9,7 +9,8 @@ function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [activeNav, setActiveNav] = useState("dashboard");
     return (
-      <h1 style={{color:"white"}}>HELLO</h1>
+      <PoliceDashboard/>
+      //
 
     )
 }

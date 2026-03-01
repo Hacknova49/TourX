@@ -1,41 +1,59 @@
+import { useState } from "react";
+
+import GlobalStyles from "../components/GlobalStyles";
+import TopNav from "../components/TopNav";
+import Sidebar from "../components/Sidebar";
+import SummaryCards from "../components/SummaryCards";
+import LiveMap from "../components/LiveMap";
+import IncidentDetail from "../components/IncidentDetail";
+import CaseTable from "../components/CaseTable";
+import StatusBar from "../components/StatusBar";
+
 export default function PoliceDashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="h-screen flex flex-col bg-[#0b1220] text-white">
+    <>
+      <GlobalStyles />
 
-      {/* Top Navigation */}
-      <TopNav />
+      <div className="h-screen flex flex-col bg-[#0b1220] text-white">
 
-      {/* Main Area */}
-      <div className="flex flex-1 overflow-hidden">
+        {/* Top Navigation */}
+        <TopNav />
 
-        {/* Sidebar */}
-        <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+        {/* Main Section */}
+        <div className="flex flex-1 overflow-hidden">
 
-        {/* Content Area */}
-        <div className="flex-1 flex flex-col p-4 gap-4 overflow-hidden">
+          {/* Sidebar */}
+          <Sidebar
+            collapsed={collapsed}
+            setCollapsed={setCollapsed}
+          />
 
-          {/* Summary Cards */}
-          <SummaryCards />
+          {/* Content Area */}
+          <div className="flex-1 flex flex-col p-4 gap-4 overflow-hidden">
 
-          {/* Map Section */}
-          <div className="flex-1 rounded-xl overflow-hidden">
-            <LiveMap />
+            {/* Summary Cards */}
+            <SummaryCards />
+
+            {/* Map Section */}
+            <div className="flex-1 min-h-[400px] rounded-xl overflow-hidden">
+              <LiveMap />
+            </div>
+
+            {/* Bottom Section */}
+            <div className="grid grid-cols-2 gap-4 h-[260px]">
+              <IncidentDetail />
+              <CaseTable />
+            </div>
+
           </div>
-
-          {/* Bottom Section */}
-          <div className="grid grid-cols-2 gap-4 h-[260px]">
-            <IncidentDetail />
-            <CaseTable />
-          </div>
-
         </div>
+
+        {/* Status Bar */}
+        <StatusBar />
+
       </div>
-
-      {/* Status Bar */}
-      <StatusBar />
-
-    </div>
+    </>
   );
 }
