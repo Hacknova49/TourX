@@ -2,7 +2,7 @@ function Features(){
     return(
         <section className="features">
             <div className="features-content">
-                <h2>Why Choose TourX?</h2>
+                <h2 className="features-title">Why Choose TourX?</h2>
 
                 <div className="features-grid">
 
