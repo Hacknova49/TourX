@@ -5,12 +5,12 @@ function Footer(){
 
                 <div className="footer-top">
 
-                    <div className="column1">
+                    <div className="brand-column">
                         <h4>TOUR-X</h4>
                         <p>Your trusted travel partner for unforgettable journeys.</p>
                     </div>
 
-                    <div className="coulmn2">
+                    <div className="links-column">
                         <h4>Quick Links</h4>
                         <ul className="footer-links">
                             <li><a href="#">Home</a></li>
@@ -18,7 +18,7 @@ function Footer(){
                         </ul>
                     </div>
 
-                    <div className="column3">
+                    <div className="contact-column">
                         <h4>Contact</h4>
                         <p>Email: support@tourx.com</p>
                         <p>Phone: +1 (123) 456-7890</p>
