@@ -1,4 +1,6 @@
+import {useNavigate} from "react-router-dom";
 function Hero(){
+    const navigate=useNavigate();
     return(
         <section className="hero">
             <div className="hero-content">
@@ -8,9 +10,9 @@ function Hero(){
                 </h1>
                 <p>Real-time safety monitoring for modern explorers</p>
                 
-                <button className="hero-button">GET STARTED</button>
+                <button className="hero-button" onClick={()=>navigate("/Login")}>GET STARTED</button>
             </div>
         </section>
     );
 }
-export default Hero;
+export default Hero
