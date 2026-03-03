@@ -1,0 +1,175 @@
+/* styles/policeVerification.css
+   OTP Verification page styles — extends policeLogin.css.
+   Import order: policeLogin.css → policeVerification.css
+*/
+
+/* ── Centered heading overrides ── */
+.pv-heading-center {
+  text-align: center;
+}
+
+.pv-subheading-center {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* ── Centered label ── */
+.pv-label-center {
+  text-align: center;
+}
+
+/* ────────────────────────────────────────
+   MASKED EMAIL CHIP
+──────────────────────────────────────── */
+.pv-email-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.pv-email-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f7f4;
+  border: 1px solid #c8e6d8;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a5c3e;
+  letter-spacing: 0.02em;
+  font-family: 'Inter', monospace;
+}
+
+.pv-email-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #40916c;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────
+   OTP INPUT BOXES
+──────────────────────────────────────── */
+.otp-boxes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.otp-box {
+  width: 52px;
+  height: 58px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d1b2a;
+  text-align: center;
+  outline: none;
+  background: #fff;
+  caret-color: #2d6a4f;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.otp-box::placeholder {
+  color: #d4dde8;
+}
+
+.otp-box:focus {
+  border-color: #2d6a4f;
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.13), 0 0 16px rgba(45, 106, 79, 0.08);
+  transform: translateY(-1px);
+}
+
+.otp-box.filled {
+  border-color: #40916c;
+  background: #f8fdfb;
+}
+
+/* ────────────────────────────────────────
+   COUNTDOWN TIMER
+──────────────────────────────────────── */
+.pv-timer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 6px;
+  margin-bottom: 28px;
+}
+
+.pv-timer-label {
+  font-size: 12.5px;
+  color: #8a9ab0;
+}
+
+.pv-timer-val {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #c0392b;
+  font-family: 'Sora', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.pv-timer-expired {
+  font-size: 12.5px;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+/* ────────────────────────────────────────
+   RESEND CODE LINK (mirrors pl-forgot style)
+──────────────────────────────────────── */
+.pv-forgot-row {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pv-resend-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #2d6a4f;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.pv-resend-btn:hover:not(:disabled) {
+  color: #40916c;
+  text-decoration: underline;
+}
+
+.pv-resend-btn:disabled {
+  color: #b0c4bb;
+  cursor: not-allowed;
+}
+
+/* ────────────────────────────────────────
+   BACK TO LOGIN LINK
+──────────────────────────────────────── */
+.pv-back-row {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.pv-back-link {
+  font-size: 13px;
+  color: #8a9ab0;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.pv-back-link:hover {
+  color: #2d6a4f;
+  text-decoration: underline;
+}
